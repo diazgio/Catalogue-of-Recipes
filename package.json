@@ -13,9 +13,12 @@
     "eslint-plugin-jsx-a11y": "6.2.x",
     "eslint-plugin-react": "7.20.x",
     "eslint-plugin-react-hooks": "2.5.x",
+    "prop-types": "^15.7.2",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
+    "react-redux": "^7.2.2",
     "react-scripts": "4.0.3",
+    "redux": "^4.0.5",
     "web-vitals": "^1.1.0"
   },
   "scripts": {
