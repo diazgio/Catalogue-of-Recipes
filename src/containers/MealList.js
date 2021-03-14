@@ -1,5 +1,6 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Grid, Image, Card, Container,
@@ -14,12 +15,23 @@ const MealList = ({ cat }) => {
     dispatch(fetchMealsStartAsync(cat));
   }, [cat]);
 
+  const [activeItem, setActiveItem] = useState();
+
+  const handleItemClick = e => setActiveItem(e);
+
   return (
-    <Container textAlign="center">
+    <Container textAlign="center" style={{ marginTop: 40 }}>
       <Grid columns={3}>
         <Grid.Row>
           {meals.map(meal => (
-            <Grid.Column key={meal.strMeal} style={{ marginTop: 20 }}>
+            <Grid.Column
+              key={meal.strMeal}
+              style={{ marginTop: 20 }}
+              onClick={handleItemClick}
+              active={activeItem === meal.idMeal}
+              as={Link}
+              to={meal.idMeal}
+            >
               <Card>
                 <Image src={meal.strMealThumb} />
                 <Card.Content>
