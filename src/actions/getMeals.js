@@ -2,16 +2,16 @@ import axios from 'axios';
 import { MealsActionTypes } from './actionTypes';
 
 export const fetchMealsStart = () => ({
-  type: MealsActionTypes.FETCH_DATA_START,
+  type: MealsActionTypes.FETCH_MEALS_START,
 });
 
 export const fetchMealsSuccess = meals => ({
-  type: MealsActionTypes.FETCH_DATA_SUCCEESS,
+  type: MealsActionTypes.FETCH_MEALS_SUCCEESS,
   meals,
 });
 
 export const fetchMealsFailure = error => ({
-  type: MealsActionTypes.FETCH_DATA_FAILURE,
+  type: MealsActionTypes.FETCH_MEALS_FAILURE,
   error,
 });
 

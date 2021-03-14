@@ -8,18 +8,18 @@ const INITIAL_STATE = {
 
 const mealsReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case MealsActionTypes.FETCH_DATA_START:
+    case MealsActionTypes.FETCH_MEALS_START:
       return {
         ...state,
         isFetching: true,
       };
-    case MealsActionTypes.FETCH_DATA_SUCCEESS:
+    case MealsActionTypes.FETCH_MEALS_SUCCEESS:
       return {
         ...state,
         meals: action.meals,
         isFetching: false,
       };
-    case MealsActionTypes.FETCH_DATA_FAILURE:
+    case MealsActionTypes.FETCH_MEALS_FAILURE:
       return {
         ...state,
         errorMessage: action.error,
