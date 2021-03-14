@@ -13,6 +13,7 @@ const NavBar = () => {
 
   return (
     <Menu pointing secondary size="massive" color="violet">
+      <h1>The Book of Recipes</h1>
       <Menu.Item
         name="home"
         active={activeItem === 'home'}
@@ -20,7 +21,6 @@ const NavBar = () => {
         as={Link}
         to="/"
       />
-      <h1>The Book of Recipes</h1>
     </Menu>
   );
 };

@@ -1,6 +1,4 @@
-/* eslint-disable no-unused-vars */
-// eslint-disable-next-line no-unused-vars
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchCategoriesStartAsync } from '../actions/getCategories';
 
@@ -9,18 +7,21 @@ const Categories = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(fetchCategoriesStartAsync('chicken_breast'));
+    dispatch(fetchCategoriesStartAsync());
   }, []);
 
   return (
-    <>
-      <div>
+    <div>
+      <select placeholder="Select your category">
+        <option>Select Category</option>
         {categories.map(cat => (
-          // eslint-disable-next-line react/jsx-key
-          <h3>{cat.strMeal}</h3>
+          <option key={cat.idCategory}>
+            {cat.strCategory}
+          </option>
         ))}
-      </div>
-    </>
+      </select>
+
+    </div>
   );
 };
 
