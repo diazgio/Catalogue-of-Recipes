@@ -6,7 +6,7 @@ export const fetchCategoriesStart = () => ({
 });
 
 export const fetchCategoriesSuccess = categories => ({
-  type: CategoriesActionTypes.FETCH_DATA_SUCCESS,
+  type: CategoriesActionTypes.FETCH_DATA_SUCCEESS,
   categories,
 });
 
@@ -15,10 +15,13 @@ export const fetchCategoriesFailure = error => ({
   error,
 });
 
-export const fetchCategoriesStartAsync = cat => dispatch => {
-  dispatch(fetchCategoriesStart());
-  axios
-    .get(`https://www.themealdb.com/api/json/v1/1/filter.php?i=${cat}`)
-    .then(res => dispatch(fetchCategoriesSuccess(res.data)))
-    .catch(error => dispatch(fetchCategoriesFailure(error)));
+// eslint-disable-next-line arrow-body-style
+export const fetchCategoriesStartAsync = cat => {
+  return dispatch => {
+    dispatch(fetchCategoriesStart());
+    axios
+      .get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${cat}`)
+      .then(res => dispatch(fetchCategoriesSuccess(res.data.meals)))
+      .catch(error => dispatch(fetchCategoriesFailure(error)));
+  };
 };

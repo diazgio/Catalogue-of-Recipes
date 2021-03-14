@@ -7,6 +7,7 @@ const INITIAL_STATE = {
 };
 
 const categoriesReducer = (state = INITIAL_STATE, action) => {
+  console.log(action.categories);
   switch (action.type) {
     case CategoriesActionTypes.FETCH_DATA_START:
       return {
