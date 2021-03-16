@@ -16,7 +16,7 @@ const ingredientsReducer = (state = INITIAL_STATE, action) => {
     case IngredientsActionTypes.FETCH_INGREDIENTS_SUCCEESS:
       return {
         ...state,
-        id: action.id,
+        ingredients: action.ingredients,
         isFetching: false,
       };
     case IngredientsActionTypes.FETCH_INGREDIENTS_FAILURE:

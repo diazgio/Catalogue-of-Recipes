@@ -5,9 +5,9 @@ export const fetchIngredientsStart = () => ({
   type: IngredientsActionTypes.FETCH_INGREDIENTS_START,
 });
 
-export const fetchIngredientsSuccess = id => ({
+export const fetchIngredientsSuccess = ingredients => ({
   type: IngredientsActionTypes.FETCH_INGREDIENTS_SUCCEESS,
-  id,
+  ingredients,
 });
 
 export const fetchIngredientsFailure = error => ({

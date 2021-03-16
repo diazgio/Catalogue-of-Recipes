@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
@@ -7,17 +7,14 @@ import {
 } from 'semantic-ui-react';
 import { fetchMealsStartAsync } from '../actions/getMeals';
 
-const MealList = ({ cat }) => {
+const MealList = props => {
+  const { cat } = props;
   const meals = useSelector(state => state.meals.meals);
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchMealsStartAsync(cat));
   }, [cat]);
-
-  const [activeItem, setActiveItem] = useState();
-
-  const handleItemClick = e => setActiveItem(e);
 
   return (
     <Container textAlign="center" style={{ marginTop: 40 }}>
@@ -27,10 +24,11 @@ const MealList = ({ cat }) => {
             <Grid.Column
               key={meal.strMeal}
               style={{ marginTop: 20 }}
-              onClick={handleItemClick}
-              active={activeItem === meal.idMeal}
               as={Link}
-              to={meal.idMeal}
+              to={{
+                pathname: `/ingredients/${meal.idMeal}`,
+                id: meal.idMeal,
+              }}
             >
               <Card>
                 <Image src={meal.strMealThumb} />
