@@ -17,10 +17,10 @@ const MealList = props => {
   }, [cat]);
 
   return (
-    <Container textAlign="center" style={{ marginTop: 40 }}>
+    <Container textalign="center" style={{ marginTop: 40 }}>
       <Grid columns={3}>
         <Grid.Row>
-          {meals.map(meal => (
+          {meals && meals.map(meal => (
             <Grid.Column
               key={meal.strMeal}
               style={{ marginTop: 20 }}
@@ -47,10 +47,10 @@ const MealList = props => {
 };
 
 MealList.propTypes = {
-  cat: PropTypes.objectOf(PropTypes.array),
+  cat: PropTypes.string,
 };
 
 MealList.defaultProps = {
-  cat: [],
+  cat: '',
 };
 export default MealList;

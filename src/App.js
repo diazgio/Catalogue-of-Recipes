@@ -2,7 +2,6 @@ import './App.css';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Home from './containers/Home';
 import NavBar from './components/NavBar';
-// import Ingredients from './containers/Ingredients';
 import IngredientsList from './containers/IngredientsList';
 
 function App() {

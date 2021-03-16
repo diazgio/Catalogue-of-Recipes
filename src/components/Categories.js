@@ -18,8 +18,8 @@ const Categories = props => {
   return (
     <div>
       <h3>Select a Category </h3>
-      <select placeholder="Select your category" onChange={handleChange}>
-        {categories.map(cat => (
+      <select className="cat" placeholder="Select your category" onChange={handleChange}>
+        {categories && categories.map(cat => (
           <option key={cat.idCategory} value={cat.strCategory}>
             {cat.strCategory}
           </option>

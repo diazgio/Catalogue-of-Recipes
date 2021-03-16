@@ -1,12 +1,9 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-unused-expressions */
-/* eslint-disable eqeqeq */
-/* eslint-disable quotes */
 import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   Loader, Table, Header, Container, Segment, Image,
 } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import { fetchIngredientsStartAsync } from '../actions/getIngredients';
 
 const IngredientsList = () => {
@@ -27,22 +24,21 @@ const IngredientsList = () => {
 
   const keys = Object.values(ingredients)[0];
   const strIngredient = [];
-  const i = Object.keys(keys).forEach(i => {
+  Object.keys(keys).forEach(i => {
     if (i.includes('strIngredient')) {
       strIngredient.push(keys[i]);
     }
   });
 
   const strMeasure = [];
-  const m = Object.keys(keys).forEach(i => {
+  Object.keys(keys).forEach(i => {
     if (i.includes('strMeasure')) {
       strMeasure.push(keys[i]);
     }
   });
 
   return (
-    // eslint-disable-next-line no-undef
-    <Container style={{ display: 'flex' }}>
+    <Container style={{ display: 'flex', paddingBottom: 50 }}>
       {ingredients.map(i => (
         <Segment key={i.idMeal}>
           <p>
@@ -80,9 +76,11 @@ const IngredientsList = () => {
               </Table.Body>
             </Table>
           </Container>
+          <h4>Instructions</h4>
           <p>
             {i.strInstructions}
           </p>
+          <Link to="/">Back to Home</Link>
         </Segment>
       ))}
     </Container>
